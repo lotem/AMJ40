@@ -34,16 +34,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 extern const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
 extern const uint16_t fn_actions[];
 
-#define KEYMAP( \
-    K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, \
-    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A,  \
-    K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A,  \
-    K30, K31, K32, K33, K34, K35 \
+// readability  
+#define XXX KC_NO
+
+/* AMJ40 ver2.0 layout1 配列一
+ * ,-----------------------------------------------------------.
+ * | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 0A | 0B |
+ * |-----------------------------------------------------------|
+ * | 10   | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 1B    |
+ * |-----------------------------------------------------------|
+ * | 20     | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 |  2A | 2B |
+ * |-----------------------------------------------------------|
+ * | 30  | 31 | 32  |   34      |  35         | 39  | 3A | 3B  |
+ * `-----------------------------------------------------------'
+ */
+#define KEYMAP_LAYOUT_1( \
+    k00, k01, k02, k03, k04, k05, k06, k07, k08, k09, k0a, k0b, \
+    k10, k11, k12, k13, k14, k15, k16, k17, k18, k19,      k1b,  \
+    k20,      k22, k23, k24, k25, k26, k27, k28, k29, k2a, k2b,  \
+    k30, k31, k32,      k34, k35,                k39, k3a, k3b  \
 ) { \
-    { KC_##K00, KC_##K01, KC_##K02, KC_##K03, KC_##K04, KC_##K05, KC_##K06, KC_##K07, KC_##K08, KC_##K09, KC_##K0A, KC_##K0B }, \
-    { KC_##K10, KC_##K11, KC_##K12, KC_##K13, KC_##K14, KC_##K15, KC_##K16, KC_##K17, KC_##K18, KC_##K19, KC_##K1A, KC_NO}, \
-    { KC_##K20, KC_##K21, KC_##K22, KC_##K23, KC_##K24, KC_##K25, KC_##K26, KC_##K27, KC_##K28, KC_##K29, KC_##K2A, KC_NO}, \
-    { KC_##K30, KC_##K31, KC_##K32, KC_##K33, KC_##K34, KC_##K35, KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO}\
+    {k00, k01, k02, k03, k04, k05, k06, k07, k08, k09, k0a, k0b}, \
+    {k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, XXX, k1b}, \
+    {k20, XXX, k22, k23, k24, k25, k26, k27, k28, k29, k2a, k2b}, \
+    {k30, k31, k32, XXX, k34, k35, XXX, XXX, XXX, k39, k3a, k3b} \
 }
+
+enum function_id {
+  BOOTLOADER,
+};
+void bootloader(void);
 
 #endif
