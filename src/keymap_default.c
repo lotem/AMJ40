@@ -9,8 +9,8 @@
 #define LT_2SPC KC_FN1  // momentary layer 2, tap space
 #define LT_3SPC KC_FN2  // momentary layer 3, tap space
 #define MO_4    KC_FN3  // momentary layer 4
-#define BL_INC  KC_FN4  // increase backlight
-#define BL_DEC  KC_FN5  // decrease backlight
+#define BL_DEC  KC_FN4  // decrese backlight
+#define BL_INC  KC_FN5  // increase backlight
 #define BL_TOGG KC_FN6  // toggle backlight
 #define BL_STEP KC_FN7
 
@@ -56,18 +56,18 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 
     /* Function Layer 1 HHKB style
      * ,-----------------------------------------------------------.
-     * |CAPS|    |    |    |    |    |    |    |    |    |    |    |
+     * |Caps|    |MSel| ⏮ | ⏯ | ⏭ |PSCR|SkLk|Paus|  ↑ | Ins| Del|
      * |-----------------------------------------------------------|
-     * |      |    |    |    |    |    |    |    |    |    |       |
+     * |      | 🔇 | ⏏ |    |  * |  / |Hone|PgUp|  ← |  → |       |
      * |-----------------------------------------------------------|
-     * |        |    |    |    |    |    |    |    |    |     |    |
+     * |        | 🔉 | 🔊 |    |  + |  - | End|PgDn| ↓ |     |    |
      * |-----------------------------------------------------------|
-     * |     |    |     |           |             |     |    |     |
+     * |     |    |     |           |             | Stop| App|     |
      * `-----------------------------------------------------------'
      */
     [1] = KEYMAP_LAYOUT_1(
         KC_CAPS, _______, KC_MSEL, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, KC_SLCK, KC_PAUS, KC_UP,   KC_INS,  KC_DEL, \
-        _______, KC_MUTE, KC_EJCT, KC_TRNS, KC_PAST, KC_PSLS, KC_HOME, KC_PGUP, KC_LEFT, KC_RGHT,          _______, \
+        _______, KC_MUTE, KC_EJCT, _______, KC_PAST, KC_PSLS, KC_HOME, KC_PGUP, KC_LEFT, KC_RGHT,          _______, \
         _______,          KC_VOLD, KC_VOLU, _______, KC_PPLS, KC_PMNS, KC_END,  KC_PGDN, KC_DOWN, _______, _______, \
         _______, _______, _______,          _______,                   _______,          KC_STOP, KC_APP , _______),
 
@@ -107,18 +107,18 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 
     /* Function Layer 4 F-Key, LED, MISC Control Layer
      * ,-----------------------------------------------------------.
-     * |    |    |    |    |    |    |    |    |    |    |    |    |
+     * | F1 | F2 | F3 | F4 | F5 | F6 | F7 | F8 | F9 | F10| F11| F12|
      * |-----------------------------------------------------------|
-     * |      |    |    |    |    |    |    |    |    |    |       |
+     * |      |    |    |    |    |    |    |    |LED |LED+|       |
      * |-----------------------------------------------------------|
-     * |        |    |    |    |    |    |    |    |    |     |    |
+     * |        |    |    |    |    |    |    |LED |LED-|     |    |
      * |-----------------------------------------------------------|
-     * |     |    |     |           |             |     |    |     |
+     * |RESET|    |     |           |             |     |    |     |
      * `-----------------------------------------------------------'
      */
     [4] = KEYMAP_LAYOUT_1(
         KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 , \
-        _______, _______, _______, _______, _______, _______, _______, BL_TOGG, BL_INC , _______,          _______, \
+        _______, _______, _______, _______, _______, _______, _______, _______, BL_TOGG, BL_INC ,          _______, \
         _______,          _______, _______, _______, _______, _______, _______, BL_STEP, BL_DEC , _______, _______, \
         RESET  , _______, _______,          _______,                   _______,          _______, _______, _______),
 
