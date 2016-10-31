@@ -9,8 +9,8 @@
 #define MO_2    KC_FN1  // momentary layer 2
 #define MO_3    KC_FN2  // momentary layer 3
 #define MO_4    KC_FN3  // momentary layer 4
-#define L_2_SPC KC_FN4  // momentary layer 2 tap space
-#define L_3_ENT KC_FN5  // momentary layer 3 tap enter
+//#define L_2_SPC KC_FN4  // momentary layer 2 tap space
+//#define L_3_ENT KC_FN5  // momentary layer 3 tap enter
 
 #define BL_DEC  KC_FN6  // decrease backlight
 #define BL_INC  KC_FN7  // increase backlight
@@ -58,14 +58,14 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |-----------------------------------------------------------|
      * | LSft   |  Z |  X |  C |  V |  B |  N |  M | /? | RSft| fn3|
      * |-----------------------------------------------------------|
-     * | ALt| LGui| Ctrl|  spc      |  ent        | Ctrl| Gui| fn4 |
+     * | fn4 | Alt| Ctrl|   spc     |  ent        | Gui | Alt| fn4 |
      * `-----------------------------------------------------------'
      */
     [0] = KEYMAP_LAYOUT_1(
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P,    KC_BSPC, \
         MO_2   , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   ,          MO_2   , \
         KC_LSFT,          KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_SLSH, KC_RSFT, MO_3   , \
-        KC_LALT, KC_LGUI, KC_LCTL, KC_SPC,                    KC_ENT ,                   KC_RCTL, KC_RGUI, MO_4   ),
+        MO_4   , KC_LALT, KC_LCTL, KC_SPC,                    KC_ENT ,                   KC_RGUI, KC_RALT, MO_4   ),
 
     /* Alternative Layer 1 Thumbs
      * ,-----------------------------------------------------------.
@@ -75,14 +75,14 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |-----------------------------------------------------------|
      * | LSft   |  Z |  X |  C |  V |  B |  N |  M | /? | RSft| fn3|
      * |-----------------------------------------------------------|
-     * | fn2| ALt| LGui|  spc fn2   |  ent fn3    | RGui| Alt| fn4 |
+     * | ALt | Gui| fn2 |  spc      |   ent       | fn2 | Gui| fn4 |
      * `-----------------------------------------------------------'
      */
     [1] = KEYMAP_LAYOUT_1(
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P,    KC_BSPC, \
         KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   ,          KC_SCLN, \
         KC_LSFT,          KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_SLSH, KC_RSFT, MO_3   , \
-        MO_2   , KC_LALT, KC_LGUI, L_2_SPC,                   L_3_ENT,                   KC_RGUI, KC_RALT, MO_4   ),
+        KC_LALT, KC_LGUI, MO_2   , KC_SPC ,                   KC_ENT ,                   MO_2,    KC_RGUI, MO_4   ),
 
     /* Symbols Layer 2
      * ,-----------------------------------------------------------.
@@ -157,8 +157,8 @@ const uint16_t fn_actions[] PROGMEM = {
     [1] = ACTION_LAYER_MOMENTARY(2),
     [2] = ACTION_LAYER_MOMENTARY(3),
     [3] = ACTION_LAYER_MOMENTARY(4),
-    [4] = ACTION_LAYER_TAP_KEY(2, KC_SPC),
-    [5] = ACTION_LAYER_TAP_KEY(3, KC_ENT),
+    //[4] = ACTION_LAYER_TAP_KEY(2, KC_SPC),
+    //[5] = ACTION_LAYER_TAP_KEY(3, KC_ENT),
 
     // backlight
     [6] = ACTION_BACKLIGHT_DECREASE(),
