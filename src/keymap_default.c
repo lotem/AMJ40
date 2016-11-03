@@ -133,18 +133,18 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * ,-----------------------------------------------------------.
      * | Esc| F1 | F2 | F3 | F4 | F5 | F6 | F7 | F8 | F9 | F10| Del|
      * |-----------------------------------------------------------|
-     * |      | F11| F12| 🔇 | 🔉 | 🔊 |Home|PgDn|PgUp| End| Ins   |
+     * |      | F11| F12| 🔇 | 🔉 | 🔊 |Home|PgDn|PgUp| End|  L3  |
      * |-----------------------------------------------------------|
-     * |        | ⏏ | ⏮ | ⏯ | ⏭ |PSCR|SkLk|Paus|App| Caps |RESET|
+     * |        | ⏏ | ⏮ | ⏯ | ⏭ |PSCR|SkLk|Paus|Ins| Caps |RESET|
      * |-----------------------------------------------------------|
-     * |     |    |     | L1        | L2          | L3  |LCLR|     |
+     * |     |    |     | L1        | L2          |     |LCLR|     |
      * `-----------------------------------------------------------'
      */
     [8] = KEYMAP_LAYOUT_1(
         KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_DEL , \
-        _______, KC_F11 , KC_F12 , KC_MUTE, KC_VOLD, KC_VOLU, KC_HOME, KC_PGDN, KC_PGUP, KC_END ,          KC_INS , \
-        _______,          KC_EJCT, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, KC_SLCK, KC_PAUS, KC_APP , KC_CAPS, RESET  , \
-        _______, _______, _______,          TO_1   ,                   TO_2   ,          TO_3   , LCLR   , _______),
+        _______, KC_F11 , KC_F12 , KC_MUTE, KC_VOLD, KC_VOLU, KC_HOME, KC_PGDN, KC_PGUP, KC_END ,          TO_3   , \
+        _______,          KC_EJCT, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, KC_SLCK, KC_PAUS, KC_INS , KC_CAPS, RESET  , \
+        _______, _______, _______,          TO_1   ,                   TO_2   ,          _______, LCLR   , _______),
 };
 
 /*
@@ -167,7 +167,7 @@ const uint16_t fn_actions[] PROGMEM = {
     [6] = ACTION_LAYER_MOMENTARY(6),
     [7] = ACTION_LAYER_MOMENTARY(7),
     [8] = ACTION_LAYER_MOMENTARY(8),
-    [9] = ACTION_LAYER_MOMENTARY(9),
+    //[9] = ACTION_LAYER_MOMENTARY(9),
 
     // backlight
     //[6] = ACTION_BACKLIGHT_DECREASE(),
