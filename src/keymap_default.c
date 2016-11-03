@@ -65,21 +65,21 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |-----------------------------------------------------------|
      * | LSft   |  Z |  X |  C |  V |  B |  N |  M | /? | RSft|fn2 |
      * |-----------------------------------------------------------|
-     * | Alt | Gui| Ctrl|   spc     |  ent        | Ctrl| Gui| fn3 |
+     * | fn3 | Alt| Ctrl|   spc     |  ent        | Gui | Alt| fn3 |
      * `-----------------------------------------------------------'
      */
     [0] = KEYMAP_LAYOUT_1(
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P,    KC_BSPC, \
         MO_FN1 , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   ,          MO_FN1 , \
         KC_LSFT,          KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_SLSH, KC_RSFT, MO_FN2 , \
-        KC_LALT, KC_LGUI, KC_LCTL,          KC_SPC,                    KC_ENT ,          KC_RCTL, KC_RGUI, MO_FN3 ),
+        MO_FN3 , KC_LALT, KC_LCTL,          KC_SPC,                    KC_ENT ,          KC_RGUI, KC_RALT, MO_FN3 ),
 
     // Layer HHKB
     [1] = KEYMAP_LAYOUT_1(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
         KC_LCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, \
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        MO_FN1 , KC_LALT, KC_LGUI,          _______,                   _______,          KC_RGUI, KC_RALT, _______),
+        MO_FN1 , KC_LALT, KC_LGUI,          _______,                   _______,          _______, _______, _______),
 
     // Layer Octopus
     [2] = KEYMAP_LAYOUT_1(
