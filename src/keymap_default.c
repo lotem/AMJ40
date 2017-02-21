@@ -12,7 +12,7 @@
 #define TO_3    KC_FN3
 
 #define FN1_SPC KC_FN4  // momentary layer fn1 tap space
-#define FN2_ENT KC_FN5  // momentary layer fn2 tap enter
+#define FN2_SPC KC_FN5  // momentary layer fn2 tap space
 
 #define MO_FN1  KC_FN6  // momentary layer fn1 symbols
 #define MO_FN2  KC_FN7  // momentary layer fn2 shift symbols
@@ -65,14 +65,14 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |-----------------------------------------------------------|
      * | LSft   |  Z |  X |  C |  V |  B |  N |  M | /? | RSft|fn2 |
      * |-----------------------------------------------------------|
-     * | fn3 | Alt| Ctrl|   spc     |  ent        | Gui | Alt| fn3 |
+     * | fn3 | Alt| Ctrl|   ent     |  spc        | Gui | Alt| fn3 |
      * `-----------------------------------------------------------'
      */
     [0] = KEYMAP_LAYOUT_1(
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P,    KC_BSPC, \
         MO_FN1 , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   ,          MO_FN1 , \
         KC_LSFT,          KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_SLSH, KC_RSFT, MO_FN2 , \
-        MO_FN3 , KC_LALT, KC_LCTL,          KC_SPC,                    KC_ENT ,          KC_RGUI, KC_RALT, MO_FN3 ),
+        MO_FN3 , KC_LALT, KC_LCTL,          KC_ENT ,                   KC_SPC ,          KC_RGUI, KC_RALT, MO_FN3 ),
 
     // Layer HHKB
     [1] = KEYMAP_LAYOUT_1(
@@ -81,28 +81,19 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
         MO_FN1 , KC_LALT, KC_LGUI,          _______,                   _______,          _______, _______, _______),
 
-    /*
-    // Layer Octopus
-    [2] = KEYMAP_LAYOUT_1(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, \
-        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______,          FN1_SPC,                   FN2_ENT,          _______, _______, _______),
-    */
-
     // Layer Combo Pinyin
     [2] = KEYMAP_LAYOUT_1(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______,          _______,                   KC_SCLN,          _______, _______, _______),
+        _______, _______, _______,          KC_SCLN,                   _______,          _______, _______, _______),
 
-    // Layer Enter Key
+    // Layer Octopus
     [3] = KEYMAP_LAYOUT_1(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______,          _______,                   KC_SPC ,          _______, _______, _______),
+        _______, _______, _______,          FN1_SPC,                   FN2_SPC,          _______, _______, _______),
 
     /* Symbols Layer
      * ,-----------------------------------------------------------.
@@ -142,7 +133,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * ,-----------------------------------------------------------.
      * | Esc| F1 | F2 | F3 | F4 | F5 | F6 | F7 | F8 | F9 | F10| Del|
      * |-----------------------------------------------------------|
-     * |      | F11| F12| 🔇 | 🔉 | 🔊 |Home|PgDn|PgUp| End| <ENT>|
+     * |      | F11| F12| 🔇 | 🔉 | 🔊 |Home|PgDn|PgUp| End| <OCT>|
      * |-----------------------------------------------------------|
      * |        | ⏏ | ⏮ | ⏯ | ⏭ |PSCR|SkLk|Paus|Ins| Caps |RESET|
      * |-----------------------------------------------------------|
@@ -171,7 +162,7 @@ const uint16_t fn_actions[] PROGMEM = {
     [3] = ACTION_LAYER_TOGGLE(3),
 
     [4] = ACTION_LAYER_TAP_KEY(6, KC_SPC),
-    [5] = ACTION_LAYER_TAP_KEY(7, KC_ENT),
+    [5] = ACTION_LAYER_TAP_KEY(7, KC_SPC),
 
     [6] = ACTION_LAYER_MOMENTARY(6),
     [7] = ACTION_LAYER_MOMENTARY(7),
