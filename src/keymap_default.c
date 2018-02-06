@@ -10,14 +10,16 @@
 #define TO_1    KC_FN1  // toggle layer 1
 #define TO_2    KC_FN2
 #define TO_3    KC_FN3
+#define TO_4    KC_FN4
 
-#define FN1_SPC KC_FN4  // momentary layer fn1 tap space
-#define FN2_SPC KC_FN5  // momentary layer fn2 tap space
+#define MO_FN1  KC_FN5  // momentary layer fn1 symbols
+#define MO_FN2  KC_FN6  // momentary layer fn2 shift symbols
+#define MO_FN3  KC_FN7  // momentary layer fn3 functions
 
-#define MO_FN1  KC_FN6  // momentary layer fn1 symbols
-#define MO_FN2  KC_FN7  // momentary layer fn2 shift symbols
-#define MO_FN3  KC_FN8  // momentary layer fn3 functions
 //#define MO_LSW  KC_FN9  // momentary layer switch
+
+#define FN1_SPC KC_FN8  // momentary layer fn1 tap space
+#define FN2_SPC KC_FN9  // momentary layer fn2 tap space
 
 //#define BL_DEC  KC_FN6  // decrease backlight
 //#define BL_INC  KC_FN7  // increase backlight
@@ -77,21 +79,28 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     // Layer HHKB
     [1] = KEYMAP_LAYOUT_1(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        KC_LCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, \
+        KC_LCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        MO_FN1 , KC_LALT, KC_LGUI,          _______,                   _______,          _______, _______, _______),
+        _______, KC_LALT, KC_LGUI,          MO_FN1 ,                   _______,          _______, _______, _______),
+
+    // Layer Ergodox
+    [2] = KEYMAP_LAYOUT_1(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+        KC_ESC , _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
+        MO_FN1 ,          _______, _______, _______, _______, _______, _______, _______, _______, MO_FN1 , _______, \
+        _______, _______, _______,          KC_LSFT,                   _______,          _______, _______, _______),
 
     // Layer Combo Pinyin
-    [2] = KEYMAP_LAYOUT_1(
+    [3] = KEYMAP_LAYOUT_1(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, KC_DOT , _______, \
         _______, _______, _______,          KC_SCLN,                   _______,          _______, _______, _______),
 
     // Layer Octopus
-    [3] = KEYMAP_LAYOUT_1(
+    [4] = KEYMAP_LAYOUT_1(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
+        KC_ESC , _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_ENT , \
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
         _______, _______, _______,          FN1_SPC,                   FN2_SPC,          _______, _______, _______),
 
@@ -106,7 +115,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |     |    |     |           |             |     |    |     |
      * `-----------------------------------------------------------'
      */
-    [6] = KEYMAP_LAYOUT_1(
+    [5] = KEYMAP_LAYOUT_1(
         KC_ESC , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_DEL , \
         _______, KC_BSLS, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,          _______, \
         _______,          KC_GRV , KC_LPRN, KC_RPRN, KC_SCLN, KC_QUOT, KC_COMM, KC_DOT , KC_SLSH, _______, _______, \
@@ -123,7 +132,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |     |    |     |           |             |     |    |     |
      * `-----------------------------------------------------------'
      */
-    [7] = KEYMAP_LAYOUT_1(
+    [6] = KEYMAP_LAYOUT_1(
         KC_ESC , KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL , \
         _______, KC_PIPE, KC_LCBR, KC_RCBR, KC_UNDS, KC_PLUS, KC_HOME, KC_PGDN, KC_PGUP, KC_END ,          _______, \
         _______,          KC_TILD, KC_LPRN, KC_RPRN, KC_COLN, KC_DBQT, KC_LT,   KC_GT  , KC_QSTM, _______, _______, \
@@ -133,18 +142,18 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * ,-----------------------------------------------------------.
      * | Esc| F1 | F2 | F3 | F4 | F5 | F6 | F7 | F8 | F9 | F10| Del|
      * |-----------------------------------------------------------|
-     * |      | F11| F12| 🔇 | 🔉 | 🔊 |Home|PgDn|PgUp| End| <OCT>|
+     * |      | F11| F12| 🔇 | 🔉 | 🔊 |Home|PgDn|PgUp| End|  Ins |
      * |-----------------------------------------------------------|
-     * |        | ⏏ | ⏮ | ⏯ | ⏭ |PSCR|SkLk|Paus|Ins| Caps |RESET|
+     * |        | ⏏ | ⏮ | ⏯ | ⏭ |PSCR|HHKB|ERGO|CMB| Caps |RESET|
      * |-----------------------------------------------------------|
-     * |     |    |     | <HHKB>    | <COMBO>     |     |LCLR|     |
+     * |     |    |     |           |             |     |LCLR|     |
      * `-----------------------------------------------------------'
      */
-    [8] = KEYMAP_LAYOUT_1(
+    [7] = KEYMAP_LAYOUT_1(
         KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_DEL , \
-        _______, KC_F11 , KC_F12 , KC_MUTE, KC_VOLD, KC_VOLU, KC_HOME, KC_PGDN, KC_PGUP, KC_END ,          TO_3   , \
-        _______,          KC_EJCT, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, KC_SLCK, KC_PAUS, KC_INS , KC_CAPS, RESET  , \
-        _______, _______, _______,          TO_1   ,                   TO_2   ,          _______, LCLR   , _______),
+        _______, KC_F11 , KC_F12 , KC_MUTE, KC_VOLD, KC_VOLU, KC_HOME, KC_PGDN, KC_PGUP, KC_END ,          KC_INS , \
+        _______,          KC_EJCT, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, TO_1   , TO_2   , TO_3   , KC_CAPS, RESET  , \
+        _______, _______, _______,          _______,                   _______,          _______, LCLR   , _______),
 };
 
 /*
@@ -160,14 +169,14 @@ const uint16_t fn_actions[] PROGMEM = {
     [1] = ACTION_LAYER_TOGGLE(1),
     [2] = ACTION_LAYER_TOGGLE(2),
     [3] = ACTION_LAYER_TOGGLE(3),
+    [4] = ACTION_LAYER_TOGGLE(4),
 
-    [4] = ACTION_LAYER_TAP_KEY(6, KC_SPC),
-    [5] = ACTION_LAYER_TAP_KEY(7, KC_SPC),
-
+    [5] = ACTION_LAYER_MOMENTARY(5),
     [6] = ACTION_LAYER_MOMENTARY(6),
     [7] = ACTION_LAYER_MOMENTARY(7),
-    [8] = ACTION_LAYER_MOMENTARY(8),
-    //[9] = ACTION_LAYER_MOMENTARY(9),
+
+    [8] = ACTION_LAYER_TAP_KEY(5, KC_SPC),
+    [9] = ACTION_LAYER_TAP_KEY(6, KC_SPC),
 
     // backlight
     //[6] = ACTION_BACKLIGHT_DECREASE(),
